@@ -65,7 +65,6 @@ func GetMeasurements(path string) (map[string]*Measurement, error) {
 		// If the location is not in the map, add it
 		if _, ok := measurements[location]; !ok {
 			measurements[location] = &Measurement{
-				Name:  location,
 				Times: 0,
 			}
 		}
