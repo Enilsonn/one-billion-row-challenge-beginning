@@ -2,18 +2,18 @@ package main
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/Enilsonn/go-backend-starter/one-billion-row-challenge/elements"
 )
 
 func main() {
+	start := time.Now()
 	measurements, err := elements.GetMeasurements("measurements.txt")
 	if err != nil {
 		panic(err)
 	}
-
-	for nome, m := range measurements {
-		fmt.Printf("%s => min=%.2f, max=%.2f, avg=%.2f, count=%d\n", nome, m.Min, m.Max, m.Sum/float64(m.Times), m.Times)
-	}
+	fmt.Println(elements.FormaterMeasurements(measurements))
+	fmt.Println("Execution time:", time.Since(start))
 
 }
